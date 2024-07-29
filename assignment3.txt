@@ -1,0 +1,259 @@
+61) Display the
+names of the employees from department number 10 with  salary greater than that of all employee
+working in other departments. 
+
+
+select emp_name from employees 
+where dept_id = 10 and salary in(select max(salary) from employees);
+
+
+
+
+62) Display the names of the employees in
+Uppercase. 
+
+select upper(emp_name) from employees;
+
+
+
+63) Display the names of the employees in
+Lowecase. 
+
+
+select lower(emp_name) from employees;
+
+
+
+64) Display the names of the employees in
+Propercase. 
+
+
+select initcap('emp_name') from employees;
+
+
+
+65) Display the length of Your name using
+appropriate function. 
+
+select len('harshitha');
+
+
+66) Display the length of all the
+employee names. 
+
+
+
+select emp_name,len(emp_name) from employees;
+
+
+
+
+67) select name of the employee
+concatenate with employee number.  
+
+
+select concat(emp_name,' ',emp_id) from employees;
+
+
+
+
+68) User appropriate function and extract
+3 characters starting from 2 
+characters from the following 
+string 'Oracle'. i.e the out put should be 'ac'. 
+
+
+select substring('oracle',3,2) ;
+
+
+
+
+69) Find the First occurance of character
+'a' from the following string i.e 
+'Computer Maintenance Corporation'. 
+
+
+SELECT INSTR('Computer Maintenance Corporation','a',1,1)
+
+
+
+
+70) Replace every occurance of alphabhet
+A with B in the string Allens(use 
+translate function) 
+
+
+SELECT REPLACE('Aliens','A','B') 
+
+
+
+
+71) Display the informaction from emp
+table.Where job manager is found it 
+should be displayed as boos(Use replace function). 
+
+
+
+
+select first_name,
+
+
+72) Display empno,ename,deptno from emp
+table.Instead of display department 
+numbers display the related department name(Use decode function). 
+
+
+
+
+
+
+
+73) Display your age in days. 
+
+
+select datediff(days, '2003-01-19', '2024-07-24')
+
+
+
+
+74) Display your age in months. 
+
+
+
+ 
+select datediff(months, '2003-01-19', '2024-07-24')
+
+
+75) Display the current date as 15th
+Augest Friday Nineteen Ninety Saven. 
+
+
+
+ 
+
+
+
+76) Display the following output for each
+row from emp table. scott has joined the company on wednesday 13th August
+ninten nintey. 
+
+
+
+ 
+
+
+
+77) Find the date for nearest saturday
+after current date. 
+
+
+SELECT NEXT_DAY (SYSDATE(), 'SATURDAY') 
+ 
+
+
+
+78) Display current time. 
+
+
+select current_time()
+ 
+
+
+
+79) Display the date three months Before
+the current date. 
+
+
+
+ SELECT ADD_MONTHS(SYSDATE(),-3)
+
+
+
+80) Display the common jobs from
+department number 10 and 20. 
+
+
+select job from employees where dept_number in (10,20)
+ 
+
+
+
+81) Display the jobs found in department
+10 and 20 Eliminate duplicate jobs. 
+
+
+
+ 
+
+
+
+82) Display the jobs which are unique to
+department 10. 
+
+
+
+ select job from employee where dept_number = 10 and job not in(select job from employee where dept_number >10 or dept_number<10);
+
+
+
+84) Display the details of those
+employees who are in sales department and 
+grade is 3. 
+
+
+select * from employees where dept_name = 'sales' and grade = 3;
+
+
+
+
+85) Display those who are not managers
+and who are managers any one. i)display the managers names ii)display the who
+are not managers  
+
+
+
+select * from employees where job = 'manager'
+
+select * from employees where job not in ('manager')
+
+86) Display those employee whose name
+contains not less than 4 characters. 
+
+
+select * from employees where length(emp_name) >= 4
+
+
+
+
+87) Display those department whose name
+start with "S" while the location 
+name ends with "K". 
+
+
+select * from departments where dept_name like 's%' and location like '%k';
+
+
+
+
+88) Display those employees whose manager
+name is JONES. 
+
+
+select * from employees where manager_name = 'jones'
+
+
+
+89) Display those employees whose salary
+is more than 3000 after giving 20% 
+increment.CC 
+
+
+select * from employees where salary+(salary*0.2) > 3000
+
+
+
+
+90) Display all employees while their
+dept names;
+
+select e.*,d.dept_name from employees e,departments d where e.dept_id = d.dept_id
