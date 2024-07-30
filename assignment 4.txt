@@ -1,0 +1,93 @@
+91) Display ename
+who are working in sales dept. 
+
+
+
+select emp_name from employees where dept_name = 'sales'
+
+
+
+92) Display employee name,deptname,salary
+and comm for those sal in between  2000
+to 5000 while location is chicago. 
+
+
+select emp_name,dept_name,salary from employees where location='chicago' and salary between(2000,5000);
+
+
+
+
+93)Display those employees whose salary
+greter than his manager salary. 
+
+
+select e.* from employees e,managers m where e.salary>m.salary
+
+
+
+
+
+94) Display those employees who are
+working in the same dept where his 
+manager is work. 
+
+
+
+select e.* from employees e, managers m where e.dept_name=m.dept_name;
+
+
+
+95) Display those employees who are not
+working under any manager. 
+
+
+
+select * from employees where manager is null;
+
+
+
+96) Display grade and employees name for
+the dept no 10 or 30 but grade is  not
+4 while joined the company before 31-dec-82. 
+
+
+
+select grade,emp_name from employees where dept_no = 10 or dept_name = 30 and grade not in (4
+) and join_date < '1882-12-31';
+
+
+97) Update the salary of each employee by
+10% increment who are not  eligiblw for
+commission. 
+
+
+update employees set salary=salary+(salary*0.1);
+
+
+
+
+98) SELECT those employee who joined the
+company before 31-dec-82 while  their
+dept location is newyork or 
+Chicago. 
+
+
+
+select * from employees where location in ('newyork','chicago') and join_date < '1882-12-31';
+
+
+
+99) DISPLAY EMPLOYEE
+NAME,JOB,DEPARTMENT,LOCATION FOR ALL WHO ARE WORKING  AS 
+MANAGER? 
+
+
+
+select emp_name,job,dept_name,location from employees where job='manager'
+
+
+
+100) DISPLAY THOSE EMPLOYEES WHOSE
+MANAGER NAME IS JONES? -- [AND ALSO DISPLAY THEIR MANAGER NAME]?
+
+select e.*,m.emp_name from employees e , managers m where e.emp_id=m.emp_id and m.emp_name='jones';
